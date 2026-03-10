@@ -66,7 +66,9 @@ This repository is a small learning project used to:
 * Colored terminal graphics
 * Increasing difficulty/speed
 * High score saving
+## Made with AI
 
+This Project is mostly vibe-coded to learn, like said above.
 ## License
 
 This project is free to use and modify.
