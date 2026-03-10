@@ -21,6 +21,7 @@ This project was created as a small test project for my GitHub account and to pr
 | A   | Move left     |
 | D   | Move right    |
 | Q   | Quit the game |
+| I   | Restart game  |
 
 ## Requirements
 
