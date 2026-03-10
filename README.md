@@ -39,7 +39,6 @@ gcc snake.c -o snake
 ./snake
 ```
 ## Compile (Windows)
-## Build with VSCode (Windows)
 
 1. Install MinGW-w64
 2. Install the VSCode C/C++ extension
