@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+
+#include "snake_common.h"
+
+
+static HANDLE hOut, hIn;
+
+void platform_init(void) {
+    hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    hIn  = GetStdHandle(STD_INPUT_HANDLE);
+
+    CONSOLE_CURSOR_INFO ci = {1, FALSE};
+    SetConsoleCursorInfo(hOut, &ci);
+
+    COORD bufSize = {BUF_W + 1, BUF_H + 3};
+    SetConsoleScreenBufferSize(hOut, bufSize);
+    SMALL_RECT winRect = {0, 0, BUF_W, BUF_H + 2};
+    SetConsoleWindowInfo(hOut, TRUE, &winRect);
+}
+
+void platform_cleanup(void) {
+    CONSOLE_CURSOR_INFO ci = {1, TRUE};
+    SetConsoleCursorInfo(hOut, &ci);
+}
+
+void move_cursor(int x, int y) {
+    COORD c = {(SHORT)x, (SHORT)y};
+    SetConsoleCursorPosition(hOut, c);
+}
+
+int read_key(void) {
+    INPUT_RECORD ir;
+    DWORD n;
+    if (!PeekConsoleInput(hIn, &ir, 1, &n) || !n) return 0;
+    ReadConsoleInput(hIn, &ir, 1, &n);
+    if (ir.EventType != KEY_EVENT || !ir.Event.KeyEvent.bKeyDown) return 0;
+
+    switch (ir.Event.KeyEvent.wVirtualKeyCode) {
+        case VK_UP:    return KEY_UP;
+        case VK_DOWN:  return KEY_DOWN;
+        case VK_LEFT:  return KEY_LEFT;
+        case VK_RIGHT: return KEY_RIGHT;
+        default:       return ir.Event.KeyEvent.uChar.AsciiChar;
+    }
+}
+
+int main(void) {
+    run_game();
+
+    platform_cleanup();
+    printf("Press any key to exit...\n");
+    _getch();
+    return 0;
+}
