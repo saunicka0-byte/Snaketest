@@ -24,7 +24,7 @@ This project was created as a small test project for a new GitHub account and to
 
 ## Requirements
 
-* Linux or Unix-like system
+* Windows, Linux or Unix-like system
 * GCC compiler
 
 ## Compile
