@@ -27,7 +27,7 @@ This project was created as a small test project for a new GitHub account and to
 * Windows, Linux or Unix-like system
 * GCC compiler
 
-## Compile
+## Compile (Linux, macOS)
 
 ```bash
 gcc snake.c -o snake
@@ -38,6 +38,13 @@ gcc snake.c -o snake
 ```bash
 ./snake
 ```
+## Compile (Windows)
+## Build with VSCode (Windows)
+
+1. Install MinGW-w64
+2. Install the VSCode C/C++ extension
+3. Press Ctrl + Shift + B to build
+4. Run snake.exe
 
 ## How it Works
 
