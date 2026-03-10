@@ -60,13 +60,12 @@ This repository is a small learning project used to:
 * experiment with real-time input handling
 * test GitHub workflows
 
-## Possible Improvements
+## Future Improvements
 
 * Arrow key controls
 * Colored terminal graphics
 * Increasing difficulty/speed
 * High score saving
-* Cross-platform support (Windows)
 
 ## License
 
