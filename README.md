@@ -1,6 +1,6 @@
 # Terminal Snake (C)
 
-A simple Snake game written in C that runs directly in the terminal.
+A simple Snake game written in C that runs in the terminal.
 This project was created as a small test project for my GitHub account and to practice basic C programming.
 
 ## Features
