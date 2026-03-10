@@ -1,7 +1,7 @@
 # Terminal Snake (C)
 
 A simple Snake game written in C (by ChatGPT) that runs directly in the terminal.
-This project was created as a small test project for a new GitHub account and to practice basic C programming.
+This project was created as a small test project for my GitHub account and to practice basic C programming.
 
 ## Features
 
@@ -41,9 +41,10 @@ gcc snake.c -o snake
 ## Compile (Windows)
 
 1. Install MinGW-w64
-2. Install the VSCode C/C++ extension
-3. Press Ctrl + Shift + B to build
-4. Run snake.exe
+2. ```bash
+   86_64-w64-mingw32-gcc snake.c -O2 -o snake.exe
+   ```
+3. Run snake.exe
 
 ## How it Works
 
@@ -61,7 +62,6 @@ This repository is a small learning project used to:
 
 ## Future Improvements
 
-* Arrow key controls
 * Colored terminal graphics
 * Increasing difficulty/speed
 * High score saving
