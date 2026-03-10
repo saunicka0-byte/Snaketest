@@ -1,9 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+#ifdef _WIN32
+#include <conio.h>
+#include <windows.h>
+#define CLEAR "cls"
+#else
 #include <unistd.h>
 #include <termios.h>
 #include <fcntl.h>
-#include <time.h>
+#define CLEAR "clear"
+#endif
 
 #define WIDTH 30
 #define HEIGHT 20
@@ -20,6 +28,7 @@ int dirY = 0;
 
 int gameOver = 0;
 
+#ifndef _WIN32
 struct termios orig;
 
 void disableRawMode() {
@@ -36,23 +45,29 @@ void enableRawMode() {
     tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
-void spawnFood() {
-    foodX = rand() % WIDTH;
-    foodY = rand() % HEIGHT;
-}
-
-int kbhit() {
+int kbhit_linux() {
     struct timeval tv = {0L, 0L};
     fd_set fds;
     FD_ZERO(&fds);
     FD_SET(0, &fds);
     return select(1, &fds, NULL, NULL, &tv);
 }
+#endif
+
+void spawnFood() {
+    foodX = rand() % WIDTH;
+    foodY = rand() % HEIGHT;
+}
 
 void input() {
-    if (!kbhit()) return;
 
+#ifdef _WIN32
+    if (!_kbhit()) return;
+    char c = _getch();
+#else
+    if (!kbhit_linux()) return;
     char c = getchar();
+#endif
 
     if (c == 'w' && dirY == 0) { dirX = 0; dirY = -1; }
     if (c == 's' && dirY == 0) { dirX = 0; dirY = 1; }
@@ -75,22 +90,23 @@ void update() {
     if (snakeX[0] < 0 || snakeX[0] >= WIDTH ||
         snakeY[0] < 0 || snakeY[0] >= HEIGHT) {
         gameOver = 1;
-        }
+    }
 
-        for (int i = 1; i < length; i++) {
-            if (snakeX[0] == snakeX[i] && snakeY[0] == snakeY[i]) {
-                gameOver = 1;
-            }
+    for (int i = 1; i < length; i++) {
+        if (snakeX[0] == snakeX[i] && snakeY[0] == snakeY[i]) {
+            gameOver = 1;
         }
+    }
 
-        if (snakeX[0] == foodX && snakeY[0] == foodY) {
-            length++;
-            spawnFood();
-        }
+    if (snakeX[0] == foodX && snakeY[0] == foodY) {
+        length++;
+        spawnFood();
+    }
 }
 
 void draw() {
-    printf("\033[H\033[J");
+
+    system(CLEAR);
 
     for (int y = -1; y <= HEIGHT; y++) {
         for (int x = -1; x <= WIDTH; x++) {
@@ -126,7 +142,10 @@ void draw() {
 int main() {
 
     srand(time(NULL));
+
+#ifndef _WIN32
     enableRawMode();
+#endif
 
     snakeX[0] = WIDTH / 2;
     snakeY[0] = HEIGHT / 2;
@@ -142,7 +161,12 @@ int main() {
         input();
         update();
         draw();
+
+#ifdef _WIN32
+        Sleep(120);
+#else
         usleep(120000);
+#endif
     }
 
     printf("Game Over! Final score: %d\n", length - 3);
