@@ -8,7 +8,7 @@ This project was created as a small test project for my GitHub account and to pr
 * Real-time keyboard input
 * Snake movement and growth
 * Food spawning
-* Collision detection (walls and self)
+* Collision detection
 * Score tracking
 * Simple terminal rendering
 * It's Snake. What did you expect?
