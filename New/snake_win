@@ -14,9 +14,9 @@ void platform_init(void) {
     CONSOLE_CURSOR_INFO ci = {1, FALSE};
     SetConsoleCursorInfo(hOut, &ci);
 
-    COORD bufSize = {BUF_W + 1, BUF_H + 3};
+    COORD bufSize = {WIDTH + 3, HEIGHT + 5};
     SetConsoleScreenBufferSize(hOut, bufSize);
-    SMALL_RECT winRect = {0, 0, BUF_W, BUF_H + 2};
+    SMALL_RECT winRect = {0, 0, WIDTH + 2, HEIGHT + 4};
     SetConsoleWindowInfo(hOut, TRUE, &winRect);
 }
 
