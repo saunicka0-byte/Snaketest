@@ -11,7 +11,7 @@ This project was created as a small test project for my GitHub account and to pr
 * Collision detection (walls and self)
 * Score tracking
 * Simple terminal rendering
- It's Snake. What did you expect?
+* It's Snake. What did you expect?
 ## Controls
 
 | Key | Action        |
