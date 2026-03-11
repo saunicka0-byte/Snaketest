@@ -43,7 +43,7 @@ gcc snake.c -o snake
 
 1. Install MinGW-w64
 2. ```bash
-   86_64-w64-mingw32-gcc snake.c -O2 -o snake.exe
+   86_64-w64-mingw32-gcc snake_win.c -O2 -o snake.exe
    ```
 3. Run snake.exe
 
