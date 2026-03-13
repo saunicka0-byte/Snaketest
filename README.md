@@ -1,7 +1,6 @@
 # Terminal Snake (C)
 
 A simple Snake game written in C that runs in the terminal.
-This project was created as a small test project for my GitHub account and to practice basic C programming.
 
 ## Features
 
@@ -66,9 +65,11 @@ This repository is a small learning project used to:
 * Colored terminal graphics
 * Increasing difficulty/speed
 * High score saving
+
 ## Made with AI
 
 This Project is mostly vibe-coded to learn, like said above.
+
 ## License
 
 This project is free to use and modify.
