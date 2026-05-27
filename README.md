@@ -10,7 +10,6 @@ A simple Snake game written in C that runs in the terminal.
 * Collision detection
 * Score tracking
 * Simple terminal rendering
-* It's Snake. What did you expect?
 ## Controls
 
 | Key | Action        |
