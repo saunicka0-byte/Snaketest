@@ -61,7 +61,6 @@ This repository is a small learning project used to:
 
 ## Future Improvements
 
-* Colored terminal graphics
 * Increasing difficulty/speed
 * High score saving
 
