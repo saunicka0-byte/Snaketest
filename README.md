@@ -66,7 +66,7 @@ This repository is a small learning project used to:
 
 ## Made with AI
 
-This Project is mostly vibe-coded to learn, like said above.
+This Project is mostly vibe-coded to learn.
 
 ## License
 
